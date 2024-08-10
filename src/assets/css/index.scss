@@ -1,0 +1,133 @@
+@import url(./flower.scss);
+@import url(./meditation.scss);
+@import url(./robot.scss);
+@import url(./quiz.scss);
+@import url(./waves.scss);
+@import url(./berge.scss);
+@import url(./wetter.scss);
+@import url(./slider.scss);
+html {
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #333;
+  color: #eee;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+  background-color: pink;
+  border-radius: 5px;
+
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: palevioletred;
+}
+
+.nonscroll {
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  box-shadow: inset 30px 0 0 turquoise, 
+  inset -35px 0 0 palevioletred;
+  height: 100vh;
+  max-width: 100vw;
+  flex-basis: 100%;
+  padding: 2.5rem 3rem;
+}
+.vertical-page {
+  padding-top: 0;
+  box-shadow: inset 30px 0 0 turquoise, 
+  inset -25px 0 0 palevioletred;
+}
+.sticky-section {
+  height: 200vh;
+}
+.sticky {
+  height: 100vh;
+  position: sticky;
+  top: 0%;
+  overflow: hidden;
+}
+.hor-scroll {
+  display: flex;
+  width: 200vw;
+  height: 100vh;
+  will-change: transform;
+  align-items: center;
+}
+
+.god-toggler-wrapper {
+  position: absolute;
+  p {
+    font-size: small;
+  }
+}
+
+.god-toggler {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 3px;
+  border: solid 2px #2229;
+  outline: #554da0 solid 3px;
+  background-color: #3338;
+  transition: all 0.4s;
+  &.active {
+    background-color: #9187e7;
+    outline: goldenrod solid 3px;
+  }
+}
+
+.god-toggler::after {
+  content: "";
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  transition: all 0.4s;
+}
+.god-toggler.active::after {
+  left: 55%;
+  background-color: #554da0;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in 1 forwards !important;
+}
+.fade-out {
+  animation: fadeOut 2s ease-in 1 forwards !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
