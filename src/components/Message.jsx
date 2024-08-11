@@ -24,23 +24,17 @@ function Message() {
         var selectedQuote = JSON.parse(results[randIndex]);
         setAuthor(selectedQuote.author);
         setQuote(selectedQuote.text);
-
         translate({text: selectedQuote.text}).then((res) => res.json())
         .then((data) => {
-            console.log(data);
-            setTranslatedMessage(data.translatedText)
+            setTranslatedMessage(data.translatedText);
         })
         .catch((error) => console.log(error));
 
 
         setInterval(() => {
-            randIndex = Math.floor(Math.random() * results.length);
-
-            var selectedQuote = JSON.parse(results[randIndex]);
-            setAuthor(selectedQuote.author);
-            setQuote(selectedQuote.text);
+            setQuote("");
         }, 180000)
-    }, [])
+    }, [quote])
 
     return (
             <div className="meditation-message">

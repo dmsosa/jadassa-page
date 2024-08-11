@@ -149,14 +149,14 @@ function Flower({ withGod }) {
     const lichtEin = () => {
         const lichten = document.querySelectorAll(".blume__licht");
         for (let i = 0 ; i < lichten.length ; i++ ) {
-            lichten[i].style.opacity = "1";
+            lichten[i].style.display = "block";
         }
     }   
 
     const lichtAus = () => {
         const lichten = document.querySelectorAll(".blume__licht");
         for (let i = 0 ; i < lichten.length ; i++ ) {
-            lichten[i].style.opacity = "0";
+            lichten[i].style.display = "none";
         }
     }
 

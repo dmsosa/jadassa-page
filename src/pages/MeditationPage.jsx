@@ -47,13 +47,11 @@ function MeditationPage() {
             <div className="row">
             <div className="col">
                 <Message />
+                <Toaster />             
             </div>
             <div className="col">
                 <div className="row">
-                    <Robot />              
-                </div>
-                <div className="row">
-                    <Toaster />
+                    <Robot /> 
                 </div>
             </div>
             </div>

@@ -74,7 +74,7 @@
     border-radius: 0.5rem;
     padding: 1rem 3rem;
     margin: 0rem auto;
-    margin-top: 5rem;
+    margin-top: 2rem;
     transition: all 0.4s;
 }
 
@@ -84,6 +84,14 @@
     outline-style: solid;
     color: #1bcaa1;
     font-weight: 700;
+}
+
+.score-p-cont {
+    margin-top: 2rem;
+}
+.score-div .score-p {
+    text-align: center;
+    display: none;
 }
 
 .quiz-wrapper {
@@ -100,7 +108,7 @@
     scroll-snap-type: mandatory;
     scroll-behavior: smooth;
     width: 90%;
-    height: 440px;
+    height: 500px;
     margin: 0 auto;
 }
 .quiz-container::-webkit-scrollbar {
@@ -313,6 +321,7 @@
     font-style: italic;
     font-size: small;
     max-width: 70%;
+    color: #333;
 }
 .advise.show p {
     display: block;
