@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jadassa-page/static/css/main.d35e1ea7.css",
+    "main.js": "/jadassa-page/static/js/main.9a99cb72.js",
+    "static/js/453.7c0e262c.chunk.js": "/jadassa-page/static/js/453.7c0e262c.chunk.js",
+    "static/media/Snow.png": "/jadassa-page/static/media/Snow.a73e183a1d15869904fe.png",
+    "static/media/Thunderstorm.png": "/jadassa-page/static/media/Thunderstorm.dd668cbd56031b9af83e.png",
+    "static/media/Rain.png": "/jadassa-page/static/media/Rain.5a26f068c1daad2b63f8.png",
+    "static/media/Clear.png": "/jadassa-page/static/media/Clear.f794832ad72b90c61eb7.png",
+    "static/media/Clouds.png": "/jadassa-page/static/media/Clouds.0756fd770f55ea454fd7.png",
+    "static/media/Drizzle.png": "/jadassa-page/static/media/Drizzle.8f4896a3a310ba18557c.png",
+    "index.html": "/jadassa-page/index.html",
+    "main.d35e1ea7.css.map": "/jadassa-page/static/css/main.d35e1ea7.css.map",
+    "main.9a99cb72.js.map": "/jadassa-page/static/js/main.9a99cb72.js.map",
+    "453.7c0e262c.chunk.js.map": "/jadassa-page/static/js/453.7c0e262c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d35e1ea7.css",
+    "static/js/main.9a99cb72.js"
+  ]
+}
