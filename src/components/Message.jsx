@@ -32,8 +32,10 @@ function Message() {
             translate({text: selectedQuote.text}).then((res) => res.json())
             .then((data) => {
                 setTranslatedMessage(data.translatedText);
-
-                quotesJSON.pages[pageIndex].results[randIndex].translatedText = data.translatedText;
+                var quoteCopy = JSON.parse(quotesJSON.pages[pageIndex].results[randIndex]);
+                quoteCopy.translatedText = data.translatedText;
+                quotesJSON.pages[pageIndex].results[randIndex] = JSON.stringify(quoteCopy);
+                
                 localStorage.setItem("quotesJSON", JSON.stringify(quotesJSON));
                 console.log("Das neue Ubertsetzung gespeichert ist!", pageIndex, randIndex)
             })

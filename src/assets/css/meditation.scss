@@ -2,7 +2,7 @@
     background-color: #222;
     padding: 0.5rem 1rem;
     border: rgba(64, 224, 208, 0.37) solid 0.25rem;
-    font-size: 16px;
+    font-size: 14px;
 
 }
 
@@ -13,9 +13,12 @@
 .meditation-page .message-col {
     margin-top: 0;
 }
+.meditation-page .robot-col {
+    position: relative;
+}
 
 .slide-row {
-    margin-top: 6rem;
+    margin-top: 3rem;
     p {
         position: absolute;
         z-index: 1;

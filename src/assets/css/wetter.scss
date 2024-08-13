@@ -6,14 +6,16 @@
 }
 .wetter-wrapper {
     position: absolute;
-    top: 20px;
-    right: 60px;
+    top: 2px;
+    right: 22px;
     height: 65px;
+    width: -moz-fit-content;
     width: fit-content;
     background-color: #554da0;
-    box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
-    padding: 10px; 
+    box-shadow: inset -10px -10px 0 0 rgba(17, 17, 17, 0.0666666667), 5px 5px 0 0 black;
+    padding: 10px;
     z-index: 100;
+    transform: scale(0.85);
 }
 .wetter-card {
     position: relative;
@@ -123,8 +125,8 @@
 
 .toaster-wrapper {
     position: absolute;
-    top: 28%;
-    right: 20px;
+    bottom: -65px;
+    right: -57px;
     margin-top: 0;
     height: 200px;
     width: 200px;

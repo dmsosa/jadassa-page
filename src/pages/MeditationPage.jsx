@@ -46,10 +46,10 @@ function MeditationPage() {
                 }
             </div>
             <div className="row">
-                <div className="col message-col">
+                <div className="col message-col col-8">
                     <Message />
                 </div>
-                <div className="col">
+                <div className="col col-4 robot-col">
                     <Robot /> 
                     <Toaster />            
                 </div>
