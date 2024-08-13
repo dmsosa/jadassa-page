@@ -1,16 +1,17 @@
 import { useMemo, useState } from "react";
 import Task from "./Task";
-function ToDo() {
+import CustomSelect from "./CustomSelect";
+
+function ToDo({ todoList, setTodoList }) {
     const [ category, setCategory ] = useState("all");
-    const [ todoList, setTodoList ] = useState([]);
-    const [ listCount, setListCount ] = useState(0);
     const [ inputText, setInputText ] = useState("");
-    const [ expanded, setExpanded ] = useState(false);
+    const [ error, setError ] = useState(false);
 
     const listToRender = useMemo(() => {
         return todoList.filter( (task) => {
             switch(category) {
                 case "all": {
+                    console.log(todoList)
                     return todoList;
                 }
                 case "pending": {
@@ -22,65 +23,71 @@ function ToDo() {
             }
         })
     }, [todoList, setTodoList, category])
-    const handleExpand = () => {
-        setExpanded(!expanded);
-    }
+
+
 
     const handleAdd = (text) => {
-        const id = listCount;
-        let task = { id: id, text: text, completed: false };
+        for (let i = 0; i < todoList.length ; i++) {
+            if (todoList[i].text === text) {
+                setError(true);
+                return;
+            }
+        }
+        let task = { id: todoList.length + 1, text: text, completed: false };
         setTodoList((prev) => [...prev, task]);
-        setListCount(listCount+1);
     }
-    const checkHandler = (id) => {
+    const checkHandler = (text) => {
         setTodoList(todoList.map((task) => {
-            if (task.id === id) { task = {...task, completed: !task.completed} };
+            if (task.text === text) { task = {...task, completed: !task.completed} };
             return task;
         }));
     }
-
-    const editHandler = (id, text) => {
-        todoList = todoList.map((task) => {
-            if (task.id === id) { task.text = text };
+    const editHandler = (prevText, text) => {
+        setTodoList(todoList.map((task) => {
+            if (task.text === prevText) { task = {...task, text: text} };
             return task;
-        })
-        setTodoList(todoList);
+        }));
     }
-    const deleteHandler = (id) => {
-        setTodoList(todoList.filter(task => task.id !== id));
+    const deleteHandler = (text) => {
+        setTodoList(todoList.filter(task => task.text !== text));
     }
 
     return (
         // The input
-        <div className="todoWrap">
+        <div className="todo-wrapper">
             <div className="todo-header">
-                <select onChange={(e) => setCategory(e.target.value)}>
-                    <option value={"all"}>All</option>
-                    <option value={"pending"}>Pending</option>
-                    <option value={"completed"}>Completed</option>
-                </select>
-                <button className="btn btn-expand" onClick={handleExpand}>{"Add dreams >>"}</button>
-                <div className="todo-input-wrap" >
-                    <input 
-                    className="todo-input"
-                    type="text" 
-                    placeholder="add a wonderful dream..."
-                    value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                    autoComplete="off"
-                    onKeyUp={(e) => {if (e.code.toLocaleLowerCase() === 'enter') { handleAdd(inputText)}}}></input>
-                    <button className="btn btn-primary" onClick={() => handleAdd(inputText)}>confirm</button>
+                <div className="title">Your list of dreams</div>
+                    <CustomSelect setCategory={setCategory}/>
+                    <div className="todo-input-wrap">
+                        <input 
+                        className="todo-input"
+                        type="text" 
+                        placeholder="add a wonderful dream..."
+                        value={inputText}
+                        onChange={(e) => {
+                            setError(false);
+                            setInputText(e.target.value);
+                        }}
+                        autoComplete="off"
+                        onKeyUp={(e) => {if (e.code.toLocaleLowerCase() === 'enter') { handleAdd(inputText)}}}></input>
+                        <button className="btn btn-primary" onClick={() => {
+                            if (inputText && inputText.length > 0) {
+                                handleAdd(inputText);
+                            }
+                        }}>confirm</button>
                 </div>
+                <div className={`todo-error ${error ? "expanded" : ""}`}>That dream is already in your list!</div>
             </div>
-            <div className="todoList">
+            <div className="task-wrapper">
                 {listToRender.map((task, index) => 
                     <Task
-                    key={task.id}
+                    key={task.text}
                     task={task} 
-                    index={index}
+                    index={index + 1}
                     checkHandler={checkHandler} 
                     editHandler={editHandler} 
-                    deleteHandler={deleteHandler}/>
+                    deleteHandler={deleteHandler}
+                    />
                 )}
             </div>
         </div>

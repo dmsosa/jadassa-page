@@ -122,11 +122,14 @@
 }
 
 .toaster-wrapper {
-    position: relative;
+    position: absolute;
+    top: 28%;
+    right: 20px;
     margin-top: 0;
     height: 200px;
     width: 200px;
     justify-content: right;
+    transform: scale(0.5);
 }
 .toaster {
     z-index: 3;

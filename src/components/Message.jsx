@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import quotesJSON from "../assets/quotes.json";
+import quotesFile from "../assets/quotes.json";
 import { translate } from "../services/translate";
 function Message() {
 
@@ -7,34 +7,47 @@ function Message() {
     const [ translatedMessage, setTranslatedMessage ] = useState();
     const [ author, setAuthor ] = useState();
 
-
 //zufalliges Seite griffen
 //von Seite set zufallige Zitaten
 
     useEffect(() => {
+        let quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
+        if (!quotesJSON) {
+            localStorage.setItem("quotesJSON", JSON.stringify(quotesFile))
+            quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
+        }
+        let pageIndex = Math.floor(Math.random() * quotesJSON.pages.length);;
+        const quotePage = quotesJSON.pages[pageIndex];
 
-        let randIndex;
-        randIndex = Math.floor(Math.random() * quotesJSON.pages.length);
-
-        const quotePage = quotesJSON.pages[randIndex];
         const results = quotePage.results;
-
-        randIndex = Math.floor(Math.random() * results.length);
+        let randIndex = Math.floor(Math.random() * results.length);
 
         var selectedQuote = JSON.parse(results[randIndex]);
+
         setAuthor(selectedQuote.author);
         setQuote(selectedQuote.text);
-        translate({text: selectedQuote.text}).then((res) => res.json())
-        .then((data) => {
-            setTranslatedMessage(data.translatedText);
-        })
-        .catch((error) => console.log(error));
+        if (selectedQuote.translatedText.length > 0) {
+            setTranslatedMessage(selectedQuote.translatedText);
+        } else {
+            translate({text: selectedQuote.text}).then((res) => res.json())
+            .then((data) => {
+                setTranslatedMessage(data.translatedText);
+
+                quotesJSON.pages[pageIndex].results[randIndex].translatedText = data.translatedText;
+                localStorage.setItem("quotesJSON", JSON.stringify(quotesJSON));
+                console.log("Das neue Ubertsetzung gespeichert ist!", pageIndex, randIndex)
+            })
+            .catch((error) => console.log(error));
+        }
+        
 
 
         setInterval(() => {
-            setQuote("");
+            if (quote && quote.length > 0 ) {
+                setQuote("");
+            }
         }, 180000)
-    }, [quote])
+    }, [])
 
     return (
             <div className="meditation-message">

@@ -1,4 +1,6 @@
-.poem-page {
+.poem-container {
+    width: 80%;
+    margin: 0 auto;
     h2 {
         margin: 0 auto;
         margin-bottom: 3rem;
@@ -16,6 +18,7 @@
     font-style: italic;
     font-weight: 600;
     margin: 0 auto;
+    text-shadow: 0px 0px 10px #333;
 }
 
 .triplet {
@@ -27,4 +30,61 @@
     font-style: italic;
     font-weight: 400;
     margin: 0 auto;
+}
+
+
+.poem-modal-container {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1117;
+}
+.poem-modal-container.fade-out {
+    animation: fadeOut 0.25s ease-in forwards !important;
+}
+.poem-modal-container.fade-in {
+    animation: fadeIn 0.25s ease-in forwards !important;
+}
+.poem-modal {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    height: 500px;
+    width: 500px;
+    padding: 1rem;
+    font-size: 16px;
+}
+.poem-modal-btn {
+    position: absolute;
+    top: 20px; right: 50px;
+    border: none;
+    border-radius: 5px;
+    padding: 0.25rem 1rem;
+    background-color: transparent;
+    color: #eee;
+    outline: groove 5px;
+    outline-color: palevioletred;
+    font-size: 10px;
+    font-weight: 600;
+    transition: all 0.4s;
+    &:hover, &:focus {
+        outline-color: turquoise;
+        background-color: palevioletred;
+        color: #111;
+    }
+    &:active {
+        outline-color: rgb(219, 174, 25);
+        background-color: turquoise;
+        color: #111;
+    }
+}
+
+.blur {
+    filter: blur(15px);
 }

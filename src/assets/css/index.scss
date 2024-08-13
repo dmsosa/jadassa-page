@@ -6,6 +6,7 @@
 @import url(./waves.scss);
 @import url(./berge.scss);
 @import url(./wetter.scss);
+@import url(./todo.scss);
 @import url(./slider.scss);
 html {
   font-size: 16px;
@@ -116,6 +117,9 @@ body {
   animation: fadeOut 2s ease-in 1 forwards !important;
 }
 
+.show {
+  display: block !important;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

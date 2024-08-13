@@ -4,6 +4,7 @@ import WeatherComponent from "../components/Weather/WeatherComponent";
 import Toaster from "../components/Toaster";
 import Message from "../components/Message";
 import Robot from "../components/Robot";
+import Slide from "../components/Slide";
 
 function MeditationPage() {
     const [ lat, setLat ] = useState([]);
@@ -45,15 +46,19 @@ function MeditationPage() {
                 }
             </div>
             <div className="row">
-            <div className="col">
-                <Message />
-                <Toaster />             
-            </div>
-            <div className="col">
-                <div className="row">
+                <div className="col message-col">
+                    <Message />
+                </div>
+                <div className="col">
                     <Robot /> 
+                    <Toaster />            
                 </div>
             </div>
+            <div className="row slide-row">
+                <div className="col">
+                    <Slide /> 
+                    <p>You will keep growing, for sure...</p>
+                </div>
             </div>
         </div>
 )

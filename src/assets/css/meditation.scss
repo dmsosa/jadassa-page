@@ -1,12 +1,27 @@
 .meditation-message .message-content {
     background-color: #222;
-    padding: 1rem 2rem;
-    border: rgba(64, 224, 208, 0.37) solid 0.5rem;
+    padding: 0.5rem 1rem;
+    border: rgba(64, 224, 208, 0.37) solid 0.25rem;
+    font-size: 16px;
+
 }
+
 .meditation-message span {
     border-bottom: palevioletred solid 0.25rem;
 }
 
-.meditation-page .col {
-    margin-top: 5rem;
+.meditation-page .message-col {
+    margin-top: 0;
+}
+
+.slide-row {
+    margin-top: 6rem;
+    p {
+        position: absolute;
+        z-index: 1;
+        bottom: -4px;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 14px;
+    }
 }
