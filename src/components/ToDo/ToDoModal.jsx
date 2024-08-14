@@ -66,8 +66,8 @@ function ToDoModal({ todoList, setTodoList }) {
                 See all
             </div>
             <div className="todo-modal">
-                <button className="btn btn-danger" onClick={toggleModal}>X</button>
                 <div className="todo-wrapper">
+                    <button className="btn btn-danger toggle-modal" onClick={toggleModal}>X</button>
                     <div className="todo-header">
                         <div className="title">Your list of dreams</div>
                         <CustomSelect setCategory={setCategory}/>

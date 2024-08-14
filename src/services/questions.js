@@ -37,7 +37,7 @@ const q3 = new Question(
     "I'm not forced to 'do' or 'reach' something"
 ],
     [3],
-    "That's it! eso es! NO matter what you do, for sure... but you have freedom of choice. Everything is licit, but not everything is convinient. Be prudent, be thankful, be patient, be YOU."
+    "That's it! eso es! Everything is licit, but not everything is convinient. Be prudent, be thankful, be patient, be YOU."
 );
 const q4 = new Question(
     4,

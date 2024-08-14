@@ -9,6 +9,8 @@
     }
 }
 
+
+
 .quartet {
     width: 80%;
     margin: 0 auto;
@@ -47,9 +49,11 @@
 }
 .poem-modal-container.fade-out {
     animation: fadeOut 0.25s ease-in forwards !important;
+    z-index: -1;
 }
 .poem-modal-container.fade-in {
     animation: fadeIn 0.25s ease-in forwards !important;
+    z-index: 2;
 }
 .poem-modal {
     position: absolute;
@@ -88,3 +92,28 @@
 .blur {
     filter: blur(15px);
 }
+
+@media only screen and (min-width: 320px) {
+    .poem-container {
+        overflow-y: scroll;
+        height: 400px;
+    }
+    .poem-modal-btn {
+        top: auto;
+        bottom: 10px;
+    }
+    .poem-modal-container .btn.btn-danger {
+        position: absolute;
+        top: 5px; right: 5px;
+    }
+    .poem-modal {
+        height: 450px;
+        width: 210px;
+        overflow-y: scroll;
+        p {
+            font-size: 14px;
+        }
+
+    }
+}
+

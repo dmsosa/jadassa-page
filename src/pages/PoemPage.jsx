@@ -58,6 +58,7 @@ function PoemPage() {
                     <p>Insisto: no te pierdes de nada del camino de los pecadores, te has propuesto seguir una línea que es la estrecha, la incómoda, la que no es siempre agradable, pero al final valdrá la pena, habrás corrido la carrera</p>
                     <p>NO tengo que escribir demasiado: Eres amada, eres amada, eres amada. Enamórate de la vida. Enamórate de DIOS.</p>
                 </div>
+                <div className="btn btn-danger" onClick={handleClick}>X</div>
             </div>
             
         </div>

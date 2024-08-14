@@ -52,7 +52,7 @@ function Message() {
     }, [])
 
     return (
-            <div className="meditation-message">
+            <div className="message-wrapper">
                 <p className="message-content">
                     {quote}
                 </p>

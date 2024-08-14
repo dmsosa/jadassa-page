@@ -33,59 +33,61 @@
 }
 
 .score-div {
-    height: 250px;
-    margin-top: 5rem;
-    padding: 0rem 0;
+    height: 100%;
+    padding: 2rem 0;
 }
 .score-div h1 {
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
-    font-size: 5rem;
+    font-size: 28px;
     margin-left: 0 auto;
     text-align: center;
 }
 .score-div span {
     font-family: "Poetsen One", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
-    font-size: 5rem;
-    margin-left: 2rem;
+    font-size: 36px;
     color: lightseagreen;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 }
 .score-div em {
     display: block;
+    width: 100%;
+    margin: 0 auto;
     font-family: sans-serif;
-    font-weight: 700;
+    font-weight: 300;
     font-style: italic;
-    font-size: 1rem;
-    margin-left: 2rem;
+    font-size: 12px;
 }
 
-.score-div button {
+.score-div .score-btn {
     display: block;
     border: none;
-    width: 300px;
-    height: 75px;
-    font-size: larger;
+    width: 80%;
+    height: 20%;
+    font-size: 18px;
     color: #fff;
     background-color: #554da0;
     box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
-    padding: 10px; 
+    padding: 2px; 
     border-radius: 0.5rem;
-    padding: 1rem 3rem;
     margin: 0rem auto;
     margin-top: 2rem;
     transition: all 0.4s;
+    &:hover, &:focus {
+        transform: translateY(-15px);
+        outline-style: solid;
+        color: #1bcaa1;
+        font-weight: 700;
+    }
+    &:active {
+        color: #1bcaa1;
+        background-color: #1bcaa1;
+    }
 }
-
-
-.score-div button:hover {
-    transform: translateY(-15px);
-    outline-style: solid;
-    color: #1bcaa1;
-    font-weight: 700;
-}
-
 .score-p-cont {
     margin-top: 2rem;
 }
@@ -95,9 +97,8 @@
 }
 
 .quiz-wrapper {
-    max-width: 50rem;
     position: relative;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .quiz-container {
@@ -107,9 +108,10 @@
     overflow-x: auto;
     scroll-snap-type: mandatory;
     scroll-behavior: smooth;
-    width: 90%;
-    height: 500px;
+    width: 100%;
+    height: 400px;
     margin: 0 auto;
+    margin-top: 10px;
 }
 .quiz-container::-webkit-scrollbar {
     display: none;
@@ -139,9 +141,9 @@
     scroll-snap-align: start;
 }
 .main-error-message {
-    padding: 0.2rem 1rem;
+    padding: 0.25rem;
     border-radius: 0.5rem;
-    margin: 2rem auto;
+    margin: 0.25rem auto;
     width: 50%;
     background-color: rgb(230, 52, 52);
 }
@@ -152,15 +154,19 @@
     font-weight: 700;
 }
 .error-message {
-    padding: 0.2rem 1rem;
+    padding: 0.25rem;
     margin: 0;
     width: 100%;
+    height: 1rem;
     background-color: rgb(230, 52, 52);
+    border-radius: 5px;
 }
 .error-message p {
-    margin-top: 0.5rem;
+    margin: 0;
+    text-indent: 15px;
     color: white;
     font-weight: 700;
+    font-size: 8px;
 }
 .question-card-header {
     border-top-left-radius: 0.25rem;
@@ -168,14 +174,14 @@
     background-color: #554da0;
     box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
     color: white;
-    padding: 0.5rem 2rem;
+    padding: 0.25rem;
 }
 .question-card-header h1 {
-    font-size: xx-large;
-    margin-bottom: 1rem;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 .question-card-header p {
-    font-size: 1.5rem;
+    font-size: 10px;
 }
 
 .question-card-container .btn {
@@ -214,9 +220,9 @@
 
 .option-container {
     border-radius: 0.5rem;
-    height: 2rem;
-    padding: 1rem;
-    margin: 0.5rem 1rem;
+    height: 10px;
+    padding: 0.8rem;
+    margin: 0.25rem;
     background-color: whitesmoke;
     display: flex;
     justify-content: space-between;
@@ -239,14 +245,13 @@
 }
 
 .option-container p {
-    font-size: 0.9rem;
+    font-size: 9px;
     font-weight: 600;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
+    padding-left: 6px;
 }
 
 .option-container > .letter {
-    border-radius: 30%;
     font-weight: 700;
     color: darkslategray;
     margin-bottom: 0;
@@ -255,16 +260,14 @@
 .option-container > .custom-checkbox input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
+    cursor: pointer;
 }
 .custom-checkbox {
     position: relative;
-    margin-right: 1rem;
-    width: 1rem;
-    height: 1rem;
-
+    width: 15px;
+    height: 15px;
 }
 
 .checkmark {
@@ -273,19 +276,19 @@
     bottom: 0;
     right: 0;
     left: 0;
-    outline: #554da0 solid 0.3rem;
+    outline: #554da0 solid 3px;
     transition: background-color 0.07s 0s ease-in;
 }
 .checkmark:after {
     content: "";
     display: none;
     position: absolute;
-    left: 0.2rem;
+    left: 0.25rem;
     top: 0rem;
-    width: 10px;
-    height: 15px;
+    width: 50%;
+    height: 80%;
     border: solid white;
-    border-width: 0rem 0.3rem 0.3rem 0rem;
+    border-width: 0px 0.2rem 0.2rem 0rem;
     transform: rotate(45deg);
 }
 .custom-checkbox:hover .checkmark {
@@ -309,7 +312,7 @@
 .advise.show {
     height: fit-content;
     background-color: aliceblue;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem;
     text-align: center;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -319,8 +322,9 @@
     display: none;
     margin: 0 auto;
     font-style: italic;
-    font-size: small;
-    max-width: 70%;
+    letter-spacing: 1px;
+    font-size: 8px;
+    max-width: 100%;
     color: #333;
 }
 .advise.show p {
@@ -329,7 +333,7 @@
 
 .progress-wrap {
     display: flex;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     justify-content: space-between;
 }
@@ -338,7 +342,7 @@
     flex-basis: 20%;
     line-height: 1;
     margin: 0 auto;
-    padding-top: 0.5rem;
+    font-size: 14px;
 }
 
 .progress {
@@ -347,7 +351,7 @@
     background-color: #e7e5fa;
     flex-basis: 70%;
     height: 2rem;
-    margin: 0.5rem auto 2rem auto;
+    margin: 0.5rem auto 0.5rem auto;
     box-shadow: 4px 5px 0px #554da0;
 }
 .progress span {
@@ -374,21 +378,22 @@
 .quiz-buttons {
     position: relative;
     display: flex;
-    bottom: -1rem;
+    bottom: -0.4rem;
     left: 0; right: 0;
-    width: 100%;
-    padding: 0 1rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 0.2rem;
     justify-content: space-between;
 }
 .quiz-buttons button {
     text-decoration: none;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem;
     background-color: #554da0;
     box-shadow: inset -10px -10px 0 0 #1111, 5px 5px 0 0 black;
     color: #fff;
     font-weight: 700;
-    font-size: smaller;
+    font-size: 10px;
     letter-spacing: 0.05rem;
     transition: all 0.2s;
 }
@@ -398,4 +403,8 @@
 .quiz-buttons button:active {
     background-color: #1bcaa1;
     color: white;
+}
+
+@media only screen and (min-width: 600px) {
+    
 }

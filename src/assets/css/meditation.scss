@@ -1,30 +1,65 @@
-.meditation-message .message-content {
+.meditation-page .row {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.meditation-page .row>* {
+    padding: 0;
+}
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.message-wrapper .message-content {
     background-color: #222;
     padding: 0.5rem 1rem;
     border: rgba(64, 224, 208, 0.37) solid 0.25rem;
-    font-size: 14px;
-
+    font-size: 10px;
+    margin: 0;
 }
-
-.meditation-message span {
+.message-wrapper span {
     border-bottom: palevioletred solid 0.25rem;
+    font-size: 12px;
+    max-width: fit-content;
 }
 
-.meditation-page .message-col {
-    margin-top: 0;
-}
-.meditation-page .robot-col {
-    position: relative;
+.slide-message {
+    position: absolute;
+    z-index: 1;
+    bottom: -4px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 14px;
 }
 
-.slide-row {
-    margin-top: 3rem;
-    p {
-        position: absolute;
-        z-index: 1;
-        bottom: -4px;
-        left: 50%;
-        transform: translate(-50%);
-        font-size: 14px;
+@media only screen and (min-width: 600px) {
+    .message-wrapper .message-content {
+        background-color: #222;
+        padding: 0.5rem 1rem;
+        border: rgba(64, 224, 208, 0.37) solid 0.25rem;
+        font-size: 13px;
+    }
+    .message-wrapper  {
+        max-width: 60%;
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .message-wrapper .message-content {
+        background-color: #222;
+        padding: 0.5rem 1rem;
+        border: rgba(64, 224, 208, 0.37) solid 0.25rem;
+        font-size: 13px;
+    }
+    .message-wrapper  {
+        margin-top: 0;
+        max-width: 60%;
+        margin-left: 180px;
     }
 }

@@ -1,0 +1,201 @@
+.toaster-wrapper {
+    position: absolute;
+    bottom: -70px;
+    right: 25%;
+    height: 200px;
+    width: 200px;
+    transform: scale(0.25);
+}
+.toaster {
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 40%;
+    background-color: #65c9f0;
+    border-radius: 25px 25px 0 0;
+    box-shadow: inset -30px 0px 0 #1113;
+    outline: white 1px solid;
+}
+.toaster::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+    height: 8%;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 0 15px 0 #333, 0 30px 0 2px #3482a0, 0 30px 0 4px #fff;
+}
+.toaster::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: -4px;
+    width: calc(100% + 6px);
+    height: 5%;
+    border-radius: 10px;
+    background-color: #333;
+    box-shadow: inset -30px 0px 0 #111;
+}
+.toaster .shine {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 15%;
+    height: 20%;
+    background-color: #fff9;
+    border-radius: 50% 22% 57% 50% / 50% 31% 60% 43%;
+}
+.toaster .foot {
+    position: absolute;
+    top: 100%;
+    width: 10%;
+    height: 15%;
+    background-color: #65c9f0;
+    &:nth-child(even) {
+        background-color: #3482a0;
+    }
+    &--1 {
+        left: 10%;
+    }
+    &--2 {
+        left: 30%;
+    }
+    &--3 {
+        left: 60%;
+    }
+    &--4 {
+        left: 80%;
+    }
+
+}
+.slot {
+    position: absolute;
+    top: 35%;
+    left: 85%;
+    width: 7px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #111;
+    box-shadow: inset -2px -2px 0 #444;
+}
+@keyframes slot {
+    50% {
+        transform: translateY(15px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+}
+.slot::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 10px;
+    width: 17px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: #444;
+    box-shadow: inset -4px 0px 0 #111, -10px 0 0 -2px white, -10px 0 0 -2px white;
+    animation: slot 2s infinite;
+}
+.bimbo {
+    z-index: 2;
+    position: absolute;
+    bottom: 53%;
+    left: 37%;
+    width: 50px;
+    height: 50px;
+    background-color: wheat;
+    border-radius: 0 0 10px 10px;
+    border: solid burlywood 5px;
+    border-width: 0px 4px 4px 4px;
+    animation: toast-front 2s infinite;
+}
+.bimbo:last-child {
+    bottom: 49%;
+    left: 45%;
+    z-index: 1;
+    animation: toast-back 2s infinite;
+}
+.bimbo::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 20px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 25px 25px 50px 50px / 25px 25px 50px 50px;    
+    background-color: wheat;
+    border: solid burlywood 4px;
+    border-width: 4px 4px 0px 4px;
+}
+.bimbo::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    top: 50%;
+    left: 20%;
+    border-radius: 100%;
+    background-color: rgb(75, 58, 37, 0.7);
+    box-shadow: 
+    10px -8px 0 0 rgb(75, 58, 37, 0.7), 
+    20px 10px 0 0 rgb(75, 58, 37, 0.7), 
+    30px -15px 0 0 rgb(75, 58, 37, 0.7);
+    z-index: 5;
+}
+
+
+@media only screen and (min-width: 425px) {
+    .toaster-wrapper {
+        position: absolute;
+        bottom: -70px;
+        right: 45%;
+        transform: scale(0.25);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .toaster-wrapper {
+        position: absolute;
+        bottom: auto;
+        top: -55px;
+        left: 40%;
+        right: auto;
+        transform: scale(0.35);
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .toaster-wrapper {
+        bottom: auto;
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes toast-back {
+    50% {
+        transform: translateY(15px);
+    }
+    80% {
+        transform: translateY(-20px);
+    }
+}
+@keyframes toast-front {
+    50% {
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-27px);
+    }
+}

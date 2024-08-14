@@ -29,6 +29,7 @@ function Slide() {
                 <a id="slider-nav-2" onClick={scrollTo}></a>
                 <a id="slider-nav-3" onClick={scrollTo}></a>
             </div>
+            <p className="slider-message">You will keep growing, for sure...</p>
         </div>
     )
 }

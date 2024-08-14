@@ -14,11 +14,11 @@ function EditTask({ index, text, editHandler, setEditMode }) {
             <div className="square">{index}</div>
             <input type="text" name="text" value={input} onChange={handleChange}/>
             <div className="edit-task-buttons">
-                <button className="btn-primary" onClick={() => {
+                <button className="btn btn-primary" onClick={() => {
                     editHandler(text, input);  
                     setEditMode(false);
                     } }>Confirm</button>
-                <button className="btn-danger" onClick={() => setEditMode(false)}>Discard</button>
+                <button className="btn btn-danger" onClick={() => setEditMode(false)}>Discard</button>
             </div>
         </div>    
 

@@ -16,7 +16,7 @@ function Score({ firstTime, score, handleTryAgain }) {
             { firstTime ? 
             <>
                 <h1>{"Let's go!"}<em>{"(o 'Los gehts', en aleman!)"}</em></h1>
-                <button onClick={() => handleTryAgain()}>New game</button>
+                <button className="score-btn" onClick={() => handleTryAgain()}>New game</button>
                 <div className="score-p-cont">
                     <p className="score-p">Are you ready for some questions today?</p>
                     <p className="score-p">It's gonna be fun!</p>
@@ -24,7 +24,7 @@ function Score({ firstTime, score, handleTryAgain }) {
                 </div>             </> :
             <>
                 <h1>Final score: <span>{Math.round(score)}</span></h1>
-                <button onClick={() => handleTryAgain()}>Play Again</button>
+                <button className="score-btn" onClick={() => handleTryAgain()}>Play Again</button>
                 <div className="score-p-cont">
                     <p className="score-p">I hope you took the time to make a pause and breath.</p>
                     <p className="score-p">I hope you enjoyed it.</p>
