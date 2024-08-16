@@ -1,22 +1,34 @@
-import { useEffect } from "react";
-
 function Score({ firstTime, score, handleTryAgain }) {
-    useEffect( () => {
+
+    const showParagraphs = () => {
+
         const pTags = document.querySelectorAll(".score-p"); 
-        var delay = 2000;
+        var delay = 0;
         for (let i = 0; pTags[i]; i++) {
             delay += 1000;
             setTimeout(() => {
                 pTags[i].style.display = "block";
             }, delay)
         }
-    }, []);
+        delay = 10000;
+        for (let i = 0; pTags[i]; i++) {
+            delay += 1000;
+            setTimeout(() => {
+                pTags[i].style.display = "none";
+            }, delay)
+        }
+    }
+
     return (
         <div className="score-div">
             { firstTime ? 
             <>
                 <h1>{"Let's go!"}<em>{"(o 'Los gehts', en aleman!)"}</em></h1>
-                <button className="score-btn" onClick={() => handleTryAgain()}>New game</button>
+                <button className="score-btn" 
+                onClick={() => handleTryAgain()} 
+                onMouseOver={showParagraphs}
+                onTouchMove={showParagraphs}
+                >New game</button>
                 <div className="score-p-cont">
                     <p className="score-p">Are you ready for some questions today?</p>
                     <p className="score-p">It's gonna be fun!</p>
@@ -24,7 +36,10 @@ function Score({ firstTime, score, handleTryAgain }) {
                 </div>             </> :
             <>
                 <h1>Final score: <span>{Math.round(score)}</span></h1>
-                <button className="score-btn" onClick={() => handleTryAgain()}>Play Again</button>
+                <button className="score-btn" 
+                onClick={() => handleTryAgain()}
+                onMouseOver={showParagraphs}
+                onTouchMove={showParagraphs}>Play Again</button>
                 <div className="score-p-cont">
                     <p className="score-p">I hope you took the time to make a pause and breath.</p>
                     <p className="score-p">I hope you enjoyed it.</p>

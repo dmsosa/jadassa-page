@@ -1,8 +1,8 @@
-import WeatherComponent from "../components/Weather/WeatherComponent";
-import Toaster from "../components/Toaster";
-import Message from "../components/Message";
-import Robot from "../components/Robot";
-import Slide from "../components/Slide";
+import WeatherComponent from "../components/Meditation/Weather/WeatherComponent";
+import Toaster from "../components/Meditation/Toaster";
+import Message from "../components/Meditation/Message";
+import Robot from "../components/Meditation/Robot";
+import Slide from "../components/Meditation/Slide";
 
 function MeditationPage() {
 

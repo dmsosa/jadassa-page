@@ -1,15 +1,28 @@
+.poem-page {
+    overflow-y: scroll;
+}
+.poem-page::-webkit-scrollbar, .poem-modal-container::-webkit-scrollbar {
+    display: none;
+}
+.poem-page.non-scroll {
+    overflow: hidden;
+}
 .poem-container {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
     h2 {
         margin: 0 auto;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         text-align: center;
         color: turquoise;
     }
 }
 
-
+.poem-btn {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+    font-size: 12px;
+}
 
 .quartet {
     width: 80%;
@@ -46,6 +59,7 @@
     height: 100%;
     width: 100%;
     background-color: #1117;
+    overflow-y: scroll;
 }
 .poem-modal-container.fade-out {
     animation: fadeOut 0.25s ease-in forwards !important;
@@ -59,17 +73,31 @@
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
     margin: auto;
-    height: 500px;
-    width: 500px;
-    padding: 1rem;
-    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0.25rem;
+    p {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        font-size: 14px;
+        line-height: 1.5;
+
+    }
+    .btn.btn-danger {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 0.25rem 0.55rem;
+        font-weight: bold;
+    }
 }
 .poem-modal-btn {
     position: absolute;
-    top: 20px; right: 50px;
+    top: 10px; right: 50px;
     border: none;
     border-radius: 5px;
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 0.5rem;
     background-color: transparent;
     color: #eee;
     outline: groove 5px;
@@ -93,27 +121,50 @@
     filter: blur(15px);
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 768px) {
     .poem-container {
-        overflow-y: scroll;
+        width: 80%;
+        margin: 0 auto;
         height: 400px;
+        p {
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+    }
+    .poem-btn {
+        top: 10px;
+        font-size: 18px;
     }
     .poem-modal-btn {
-        top: auto;
-        bottom: 10px;
+        top: 20px;
+        right: 60px;
+        bottom: auto;
+        font-size: 16px;
     }
     .poem-modal-container .btn.btn-danger {
         position: absolute;
-        top: 5px; right: 5px;
+        top: 15px; right: 5px;
+        padding: 0.25rem 0.85rem;
+        font-size: 20px;
     }
     .poem-modal {
-        height: 450px;
-        width: 210px;
-        overflow-y: scroll;
+        width: 80%;
+        padding-top: 4rem;
         p {
-            font-size: 14px;
+            font-size: 17px;
         }
+    }
 
+    .quartet {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 2.4rem;
+        margin-left: 20%;
+    }
+    .triplet {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
     }
 }
 

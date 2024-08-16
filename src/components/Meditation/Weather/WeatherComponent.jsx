@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { fetchWeather } from "../../services/weather";
+import { fetchWeather } from "../../../services/weather";
 
 
 function WeatherComponent() {

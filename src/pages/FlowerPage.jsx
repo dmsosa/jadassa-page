@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useGod } from "../context/GodContext";
+import Flower from "../components/Flower/Flower";
 import GodToggler from "../components/GodToggler";
-import Flower from "../components/Flower";
 
 function FlowerPage() {
     const { withGod } = useGod();
@@ -14,21 +14,13 @@ function FlowerPage() {
             <GodToggler />
             <div className="container">
                 <div className="row">
-                    <div className="col col-12">
-                        <h1>Today is Jdss's {`${withGod ? "Tag": "Nacht"}`}</h1>
-                        <p>This is your very very happy birthday!</p>
-                    </div>
-                    <div className="col">
-                    </div>
+                    <h1>Today is Jdss's {`${withGod ? "Tag": "Nacht"}`}</h1>
+                    <p className="subtitle">This is your very very happy birthday!</p>
                 </div>
                 <div className="row">
                     <Flower withGod={withGod}/>
                 </div>
-                <div className="row">
-                    <div className="col">
-                        <p>Always remember to be with Him</p>
-                    </div>
-                </div>
+                <p className="footer">Always remember to be with Him</p>
             </div>
         </div>
 

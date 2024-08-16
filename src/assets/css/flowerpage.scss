@@ -1,0 +1,41 @@
+.flower-page {
+    padding-top: 4rem;
+  h1 {
+    font-size: 18px;
+  }
+  p.subtitle {
+    font-size: 10px;
+  }
+  p.footer {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+    .flower-page {
+        padding-top: 4rem;
+      h1 {
+        font-size: 26px;
+      }
+      p.subtitle {
+        font-size: 12px;
+      }
+      p.footer {
+        font-size: 14px;
+      }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .flower-page {
+        padding-top: 4rem;
+      h1 {
+        font-size: 36px;
+      }
+      p.subtitle {
+        font-size: 16px;
+      }
+      p.footer {
+        font-size: 20px;
+      }
+    }
+}

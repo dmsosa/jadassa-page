@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Slide from "../components/Slide";
 import ToDo from "../components/ToDo/ToDo";
 import ToDoModal from "../components/ToDo/ToDoModal";
 
