@@ -4,13 +4,10 @@ import FlowerPage from "./pages/FlowerPage";
 import MeditationPage from "./pages/MeditationPage";
 import QuizPage from "./pages/QuizPage";
 import PoemPage from "./pages/PoemPage";
+import Geschenk from "./pages/Geschenk";
 
 function App() {
-  const showUp = () => {
-    document.body.classList.remove("nonscroll");
-    document.querySelector("div.curtain").classList.add("remove");
-    document.querySelector("div.curtain .giftbox").classList.add("remove");
-  }
+
   const scrollX = (stickySection) => {
     const offsetTop = stickySection.offsetTop;
     const horizontalScroll = stickySection.querySelector(".hor-scroll");
@@ -27,7 +24,8 @@ function App() {
     })
   }, [])
   return (
-    <main>
+    <main className="nonscroll viewport-height">
+      <Geschenk />
       <div className="sticky-section">
         <div className="sticky">
             <div className="hor-scroll">
@@ -47,7 +45,6 @@ function App() {
           </div>
         </div>
       </div>
-      <section></section>
     </main>
   );
 }

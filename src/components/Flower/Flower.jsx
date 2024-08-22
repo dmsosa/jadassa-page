@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import Wellen from "./Wellen";
 import Berge from "./Berge";
+import { useEffect } from "react";
 
 function Flower({ withGod }) {
     
@@ -10,8 +10,8 @@ function Flower({ withGod }) {
         verwelkteAus();
         trockeneAus();
         setTimeout(wusteAus, 3000);
+        setTimeout(lichtEin, 3000);
         setTimeout(wasserAus, 5000);
-        setTimeout(lichtEin, 8000);
 
     }
 
@@ -23,6 +23,21 @@ function Flower({ withGod }) {
         setTimeout(lichtAus, 3000);
         setTimeout(wusteEin, 6000);
         setTimeout(wellenAus, 8000);
+    }
+
+    const hintergrundTag = () => {
+        const hintergrund = document.querySelector(".hintergrund");
+        if (hintergrund.classList.contains("hintergrund__nacht")) {
+            hintergrund.classList.remove("hintergrund__nacht");
+        }
+        hintergrund.classList.add("hintergrund__tag");
+    }
+    const hintergrundNacht = () => {
+        const hintergrund = document.querySelector(".hintergrund");
+        if (hintergrund.classList.contains("hintergrund__tag")) {
+            hintergrund.classList.remove("hintergrund__tag");
+        }
+        hintergrund.classList.add("hintergrund__nacht");
     }
 
     const schwachEin = () => {
@@ -79,6 +94,9 @@ function Flower({ withGod }) {
         if (wellenContainer.classList.contains("fade-out")) {
             wellenContainer.classList.remove("fade-out");
         }
+        if (wellenContainer.classList.contains("versteckt")) {
+            wellenContainer.classList.remove("versteckt");
+        }
         wellenContainer.classList.add("fade-in");
     }
     const wellenAus = () => {
@@ -89,34 +107,61 @@ function Flower({ withGod }) {
     const wasserEin = () => {
         const wasserContainer = document.querySelector(".wasser-container");
         const wuste = document.querySelector(".wuste-wrapper");
-        if (wasserContainer.classList.contains("fade-out") ) {
-            wasserContainer.classList.remove("fade-out");
-        }
-        if ( wuste.computedStyleMap().get("opacity").value === 1 ) {
+        if (wasserContainer.classList.contains("versteckt") && 
+            wuste.classList.contains("sichtbar")) {
+
+            wasserContainer.classList.remove("versteckt");
             wasserContainer.classList.add("fade-in");
+
+            setTimeout(() => {
+                wasserContainer.classList.add("sichtbar");
+                wasserContainer.classList.remove("fade-in");
+            }, 5000)
+
         }
-
-
     }
+
     const wasserAus = () => {
         const wasserContainer = document.querySelector(".wasser-container");
-        if (wasserContainer.computedStyleMap().get("opacity").value === 1) {
-            wasserContainer.classList.remove("fade-in");
+        if (wasserContainer.classList.contains("sichtbar") && 
+            !wasserContainer.classList.contains("versteckt")) {
+                
+            wasserContainer.classList.remove("sichtbar");
             wasserContainer.classList.add("fade-out");
+
+            setTimeout(() => {
+                wasserContainer.classList.add("versteckt");
+                wasserContainer.classList.remove("fade-out");
+            }, 5000)
+
         }
     }
     const wusteEin = () => {
         const wuste = document.querySelector(".wuste-wrapper");
-        if (wuste.classList.contains("fade-out")) {
-            wuste.classList.remove("fade-out");
+        if (wuste.classList.contains("versteckt") && 
+            !wuste.classList.contains("sichtbar")) {
+                
+                wuste.classList.remove("versteckt");
+                wuste.classList.add("fade-in");
+
+            setTimeout(() => {
+                wuste.classList.add("sichtbar");
+                wuste.classList.remove("fade-in");
+            }, 2000)
         }
-        wuste.classList.add("fade-in");
     }
     const wusteAus = () => {
         const wuste = document.querySelector(".wuste-wrapper");
-        if (wuste.computedStyleMap().get("opacity").value === 1) {
-            wuste.classList.remove("fade-in");
-            wuste.classList.add("fade-out");
+        if (wuste.classList.contains("sichtbar") && 
+            !wuste.classList.contains("versteckt")) {
+                
+                wuste.classList.remove("sichtbar");
+                wuste.classList.add("fade-out");
+
+            setTimeout(() => {
+                wuste.classList.add("versteckt");
+                wuste.classList.remove("fade-out");
+            }, 2000)
         }
     }
     const trockeneEin = () => {
@@ -149,14 +194,20 @@ function Flower({ withGod }) {
     const lichtEin = () => {
         const lichten = document.querySelectorAll(".blume__licht");
         for (let i = 0 ; i < lichten.length ; i++ ) {
-            lichten[i].style.display = "block";
+            if (lichten[i].classList.contains("d-none")) {
+                lichten[i].classList.remove("d-none");
+            }
+            lichten[i].classList.add("d-block");
         }
     }   
 
     const lichtAus = () => {
         const lichten = document.querySelectorAll(".blume__licht");
         for (let i = 0 ; i < lichten.length ; i++ ) {
-            lichten[i].style.display = "none";
+            if (lichten[i].classList.contains("d-block")) {
+                lichten[i].classList.remove("d-block");
+            }
+            lichten[i].classList.add("d-none");
         }
     }
 
@@ -462,7 +513,7 @@ function Flower({ withGod }) {
                     <div className="spriess spriess--3"></div>
                 </div>
             </div>
-            <Berge/>
+            <Berge />
         </div>
         </>
         

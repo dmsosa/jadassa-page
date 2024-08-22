@@ -21,10 +21,6 @@ function PoemPage() {
 
     }
 
-    const handleClick = () => {
-        blurPage();
-        toggleModal();
-    }
     return (
     <div className="page poem-page">
         <Poem/>

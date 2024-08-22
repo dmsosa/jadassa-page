@@ -3,7 +3,7 @@ import quotesFile from "../../assets/quotes.json";
 import { translate } from "../../services/translate";
 function Message() {
 
-    const [ quote, setQuote ] = useState();
+    const [ quote, setQuote ] = useState("");
     const [ translatedMessage, setTranslatedMessage ] = useState();
     const [ author, setAuthor ] = useState();
 
@@ -11,44 +11,55 @@ function Message() {
 //von Seite set zufallige Zitaten
 
     useEffect(() => {
-        // let quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
-        // if (!quotesJSON) {
-        //     localStorage.setItem("quotesJSON", JSON.stringify(quotesFile))
-        //     quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
-        // }
-        // let pageIndex = Math.floor(Math.random() * quotesJSON.pages.length);;
-        // const quotePage = quotesJSON.pages[pageIndex];
+        let quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
+        if (!quotesJSON) {
+            localStorage.setItem("quotesJSON", JSON.stringify(quotesFile))
+            quotesJSON = JSON.parse(localStorage.getItem("quotesJSON"));
+        }
+        let pageIndex = Math.floor(Math.random() * quotesJSON.pages.length);
+        const quotePage = quotesJSON.pages[pageIndex];
 
-        // const results = quotePage.results;
-        // let randIndex = Math.floor(Math.random() * results.length);
+        const results = quotePage.results;
+        let randIndex = Math.floor(Math.random() * results.length);
 
-        // var selectedQuote = JSON.parse(results[randIndex]);
+        var selectedQuote;
 
-        // setAuthor(selectedQuote.author);
-        // setQuote(selectedQuote.text);
-        // if (selectedQuote.translatedText.length > 0) {
-        //     setTranslatedMessage(selectedQuote.translatedText);
-        // } else {
-        //     translate({text: selectedQuote.text}).then((res) => res.json())
-        //     .then((data) => {
-        //         setTranslatedMessage(data.translatedText);
-        //         var quoteCopy = JSON.parse(quotesJSON.pages[pageIndex].results[randIndex]);
-        //         quoteCopy.translatedText = data.translatedText;
-        //         quotesJSON.pages[pageIndex].results[randIndex] = JSON.stringify(quoteCopy);
+        if (typeof results[randIndex] === "string") {
+            selectedQuote = JSON.parse(results[randIndex]); 
+        } else {
+            selectedQuote = results[randIndex];
+        }
+
+
+
+        if (!quote.length > 0) {
+            setAuthor(selectedQuote.author);
+            setQuote(selectedQuote.text);
+        }
+
+        if (selectedQuote.translatedText.length > 0) {
+            setTranslatedMessage(selectedQuote.translatedText);
+        } else {
+            translate({text: selectedQuote.text}).then((res) => res.json())
+            .then((data) => {
+                setTranslatedMessage(data.translatedText);
+                var quoteCopy = JSON.parse(quotesJSON.pages[pageIndex].results[randIndex]);
+                quoteCopy.translatedText = data.translatedText;
+                quotesJSON.pages[pageIndex].results[randIndex] = JSON.stringify(quoteCopy);
                 
-        //         localStorage.setItem("quotesJSON", JSON.stringify(quotesJSON));
-        //         console.log("Das neue Ubertsetzung gespeichert ist!", pageIndex, randIndex)
-        //     })
-        //     .catch((error) => console.log(error));
-        // }
+                localStorage.setItem("quotesJSON", JSON.stringify(quotesJSON));
+                console.log("Das neue Ubertsetzung gespeichert ist!", pageIndex, randIndex)
+            })
+            .catch((error) => console.log(error));
+        }
         
 
 
-        // setInterval(() => {
-        //     if (quote && quote.length > 0 ) {
-        //         setQuote("");
-        //     }
-        // }, 180000)
+        setInterval(() => {
+            if (quote && quote.length > 0 ) {
+                setQuote("");
+            }
+        }, 180000)
     }, [])
 
     return (

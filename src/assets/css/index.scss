@@ -1,3 +1,4 @@
+@import url(./geschenk.scss);
 @import url(./flower.scss);
 @import url(./flowerpage.scss);
 @import url(./meditation.scss);
@@ -40,6 +41,9 @@ body {
 
 .nonscroll {
   overflow: hidden;
+}
+.viewport-height {
+  height: 100vh;
 }
 
 .page {
@@ -121,8 +125,24 @@ body {
   animation: fadeOut 2s ease-in 1 forwards !important;
 }
 
-.show {
+.sichtbar {
+  opacity: 1 !important;
+}
+.versteckt {
+  opacity: 0 !important;
+}
+
+.d-block {
   display: block !important;
+}
+.d-none {
+  display: none !important;
+}
+.max-width {
+  max-width: 100%;
+}
+.no-width {
+  max-width: 0;
 }
 .btn.btn-primary {
   padding: 0.2rem;

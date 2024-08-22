@@ -28,7 +28,7 @@
   filter: blur(1px);
 
   &__tag {
-    box-shadow: inset -20px 30px 100px 0px rgb(255, 235, 18, 0.7);
+    box-shadow: inset -20px 30px 100px 0px rgb(255, 235, 18, 0.4);
     background:
     radial-gradient(circle at top right, rgba(253, 241, 11, 0.5) 75px,  transparent 225px), 
     radial-gradient(ellipse at top, transparent 50%, var(--bg-c)),
@@ -43,7 +43,24 @@
   
     linear-gradient(90deg, rgb(235, 129, 0), rgb(240, 240, 240));
   }
- 
+  &__nacht {
+    --bg-c: rgb(31, 38, 71);
+    box-shadow: inset -20px 30px 80px 0px rgba(33, 1, 75, 0.7);
+    background:
+    radial-gradient(circle at top right, rgb(255, 255, 255, 0.8) 45px,  transparent 155px), 
+    radial-gradient(ellipse at top, transparent 50%, var(--bg-c)),
+    radial-gradient(
+      ellipse at bottom,
+      var(--bg-c),
+      rgba(0, 127, 159, 0.105)
+    ),
+    repeating-linear-gradient(220deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(189deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(90deg, var(--bg-c) 0px, var(--bg-c) 17px, transparent 19px, transparent 22px),
+  
+    linear-gradient(90deg, rgb(244, 244, 243), rgb(255, 230, 0));
+  }
+
 }
 // Blume ----------------------------------------------
 .blume {

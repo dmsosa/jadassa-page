@@ -338,11 +338,11 @@
 @media only screen and (min-width: 768px) {
     .robot-wrapper {
         left: auto;
-        right: 0px;
-        top: 50px;
+        right: 100px;
+        top: 150px;
     }
     .robot {
-        transform: scale(0.75);
+        transform: scale(1);
     }
 }
 

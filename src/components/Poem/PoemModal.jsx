@@ -13,8 +13,8 @@ function PoemModal( { handleClick }) {
                 <p> Eres amada, eres amada, eres amada. Enamórate de la vida. Enamórate de DIOS.</p>
                 <p>Te recomiendo la historia de Helen Keller.</p>
                 <div className="btn btn-danger" onClick={handleClick}>X</div>
+                <AudioPlayer />
             </div>
-            <AudioPlayer />
         </div>
     )
 }

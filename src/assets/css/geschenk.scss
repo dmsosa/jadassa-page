@@ -1,0 +1,311 @@
+.geschenk-seite {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+    z-index: 1;
+    opacity: 1;
+    &.fade-out {
+        animation-duration: 1s !important;
+    }
+    p {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.geschenk-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 200px;
+    background: radial-gradient(100px at center, orange, transparent) 0px -10px/100% no-repeat;
+}
+.geschenk {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background-color: rgb(247, 188, 11);
+    box-shadow: -10px -10px 0px #2221 inset;
+    z-index: 2;
+    cursor: pointer;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 20px;
+        height: 100%;
+        margin: auto;
+        background-color: palevioletred;
+        box-shadow: 0px -10px 0px rgba(34, 34, 34, 0.0666666667) inset,
+        0px -2px 5px rgba(34, 34, 34, 0.0666666667) inset,
+        0px 2px 5px rgba(34, 34, 34, 0.0666666667) inset;
+    }
+    &-deckel {
+        position: absolute;
+        top: -133px;
+        left: -9px;
+        right: 0;
+        bottom: 0;
+        width: 115%;
+        height: 35px;
+        margin: auto;
+        background-color: rgb(247, 188, 11);
+        box-shadow: -10px -10px 0px rgba(34, 34, 34, 0.0666666667) inset, 
+        0px 5px 5px #3334;
+        cursor: pointer;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 20px;
+            height: 100%;
+            margin: auto;
+            background-color: palevioletred;
+            box-shadow: 0px -10px 0px rgba(34, 34, 34, 0.0666666667) inset,
+            0px -2px 5px rgba(34, 34, 34, 0.0666666667) inset,
+            0px 2px 5px rgba(34, 34, 34, 0.0666666667) inset;
+        }
+        .knotel {
+            position: absolute;
+            top: -39px;
+            left: 24%;
+            width: 40px;
+            height: 40px;
+            margin: auto;
+            border: palevioletred solid 7px;
+            border-radius: 17px 25px 0 25px;
+            &.animated {
+                animation: knotel-links 1.5s forwards;
+                animation-iteration-count: 1;
+                &::before {
+                    animation: knotel-rechts 1s forwards;
+                    animation-iteration-count: 1;
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: -7px;
+                left: 27px;
+                width: 40px;
+                height: 40px;
+                margin: auto;
+                border: palevioletred solid 7px;
+                border-radius: 25px 17px 25px 0;
+            }
+        }
+   }
+}
+
+.confetti-container {
+    position: absolute;
+    margin:  auto;
+    bottom: 50%;
+    left: 50%;
+    transform:translate(-50%);
+    cursor: pointer;
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        left: 30%;
+        opacity: 0;
+        transition: all 0.4s;
+    }
+    &.animated {
+        @for $i from 1 through 200 {
+            div:nth-of-type(#{$i}) {
+                transform: skewY(random(50)+deg)
+                rotate(random(55) * -1 + deg )
+                translate(random(100) + px, random(100) * -5 + px)
+                scale(random(5)/10);
+                background-color: hsla(random(360), 100%, 50%, 1);
+                animation: bang 2s random(5)/20+s;
+                animation-iteration-count: 4;
+                bottom: random(10)+px;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.monster-container {
+    position: absolute;
+    top: 50px; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    width: 125px;
+    // animation: vibrate-monster 1s infinite ease-in-out alternate;
+    z-index: -1;
+    &.animated {
+        animation: monster-springen 1s infinite alternate;
+        animation-delay: 1s;
+    }
+}
+.vibrate-1 {
+    animation: vibrate-1 1s infinite ease-in-out alternate;
+}
+.vibrate-2 {
+    animation: vibrate-2 1s infinite ease-in-out alternate;
+}
+.box-springen {
+    animation: box-springen 1s 1 ease-in forwards;
+}
+.deckel-springen {
+    animation: deckel-springen 1s 1 ease-in forwards;
+}
+
+@keyframes vibrate-1 {
+    0% {
+        transform: translate(0px);
+    }
+    25% {
+        transform: translate(-5px);
+
+    }
+    50% {
+        transform: translate(5px);
+
+    }
+    75% {
+        transform: translate(-10px);
+
+    }
+    100% {
+        transform: translate(10px);
+    }
+}
+@keyframes vibrate-2 {
+    0% {
+        transform: translate(0px);
+    }
+    25% {
+        transform: translate(-2.5px);
+
+    }
+    50% {
+        transform: translate(2.5px);
+
+    }
+    75% {
+        transform: translate(-5px);
+
+    }
+    100% {
+        transform: translate(5px);
+    }
+}
+@keyframes vibrate-monster {
+    0% {
+        transform: translate(0px) rotate(5deg);
+    }
+    25% {
+        transform: translate(-2.5px);
+
+    }
+    50% {
+        transform: translate(2.5px) rotate(-5deg);
+
+    }
+    75% {
+        transform: translate(-5px) rotate(5deg);
+
+    }
+    100% {
+        transform: translate(5px) rotate(-5deg);
+    }
+}
+@keyframes monster-springen {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: -150px;
+    }
+}
+
+@keyframes box-springen {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+}
+@keyframes deckel-springen {
+    0%,
+    42% {
+        transform: translate3d(0%, 0%, 0) rotate(0deg);
+    }
+    60% {
+        transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+    }
+    90%, 100% {
+        transform: translate3d(-69%, 225%, 0) rotate(-70deg);
+    }
+  }
+
+@keyframes bang {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes knotel-links {
+    0% {
+        transform: rotate(0deg) skew(0);
+    }
+    50%,
+    75% {
+        transform: rotate(-5deg) skew(10deg, 10deg);
+    }
+    90%,
+    100% {
+        transform: rotate(0deg) skew(10deg, 10deg);
+    }
+}
+@keyframes knotel-rechts {
+    0% {
+        transform: rotate(0deg) skew(0);
+    }
+    50%,
+    75% {
+        transform: rotate(-5deg) skew(-10deg, -10deg);
+    }
+    90%,
+    100% {
+        transform: rotate(0deg) translate(-5px) skew(-10deg, -10deg);
+    }
+}
+
+
+@media only screen and (min-width: 450px) {
+    .geschenk-seite {
+        p {
+            font-size: 26px;
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .geschenk-seite {
+        p {
+            font-size: 32px;
+        }
+    }
+}
+@media only screen and (min-width: 960px) {
+
+    .geschenk-container {
+        margin-top: 300px;
+        transform: scale(1.25);
+    }
+    .confetti-container {
+        bottom: 20%;
+    }
+}

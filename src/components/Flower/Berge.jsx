@@ -1,7 +1,7 @@
 function Berge() {
     return (
         <>  
-            <div className="wuste-wrapper">
+            <div className="wuste-wrapper versteckt">
                 <div className="heuball">
                     <div className="heuball__dorne heuball__dorne--1"></div>
                     <div className="heuball__dorne heuball__dorne--2"></div>
