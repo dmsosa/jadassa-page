@@ -22,7 +22,7 @@ function ToDo({ todoList, setTodoList }) {
                 }
             }
         })
-    }, [todoList, setTodoList, category])
+    }, [todoList, category])
 
 
 

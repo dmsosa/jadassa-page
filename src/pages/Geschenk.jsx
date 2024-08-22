@@ -6,6 +6,16 @@ import { useState } from "react";
 function Geschenk() {
     const [ open, setOpen ] = useState(false);
 
+    const skipAnimation = () => {
+        const seite = document.querySelector(".geschenk-seite");
+        const main = document.querySelector("main");
+        seite.classList.add("versteckt");
+        seite.classList.remove("fade-out");
+        main.classList.remove("nonscroll");
+        main.classList.remove("viewport-height");
+        const confetti = document.querySelector(".confetti-container");
+        confetti.remove();
+    }
     const moveGeschenk = () => {
         const geschenk = document.querySelector(".geschenk");
         const deckel = document.querySelector(".geschenk-deckel");
@@ -74,6 +84,7 @@ function Geschenk() {
                 </div>
             </div>
             <p>{ open ? "Glück Geburtstag!" : "Are you ready...?"}</p>
+            <button className="btn btn-primary skip-btn" onClick={skipAnimation}>Skip presentation</button>
         </div>
     )
 }
