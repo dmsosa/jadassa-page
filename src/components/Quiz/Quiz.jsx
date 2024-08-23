@@ -9,11 +9,14 @@ function Quiz() {
     const [ showScore, setShowScore ] = useState(true);
     const [ finalScore, setFinalScore ] = useState(0);
     const [ attemps, setAttemps ] = useState(0);    
-    const pointsPerQuestion = 10000 / questions.length;
+
+
+    const maxPoints = 10000;
+    const pointsPerQuestion = maxPoints / questions.length;
 
     const sumToScore = (points) => {
-        if (finalScore + points > 10000) {
-            setFinalScore(10000);
+        if (finalScore + points > maxPoints) {
+            setFinalScore(maxPoints);
             return;
         }
         setFinalScore(finalScore + points);
@@ -39,7 +42,9 @@ function Quiz() {
                 firstTime={attemps < 1} 
                 score={finalScore} 
                 setShowScore={setShowScore} 
-                handleTryAgain={handleTryAgain} /> 
+                maxScore={maxPoints}
+                handleTryAgain={handleTryAgain} 
+                /> 
             </>
             :
             <>

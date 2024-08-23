@@ -64,7 +64,7 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
             return;
         }
 
-        if (currentOption == null || selectedOptions.includes(currentOption)) { return };
+        if (currentOption === null || selectedOptions.includes(currentOption)) { return };
 
         selectedOptions.push(currentOption);
         setSelectedOptions(selectedOptions);
@@ -84,7 +84,7 @@ function QuestionCard({ question, index, sumToScore, pointsPerQuestion, allQuest
         if (question.correctOptions.length === selectedOptions.length) {
             setQuestionAsAnswered();
         };
-    }, [currentOption])
+    }, [currentOption, selectedOptions])
 
 
     return (

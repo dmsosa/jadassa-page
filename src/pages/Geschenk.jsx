@@ -13,8 +13,7 @@ function Geschenk() {
         seite.classList.remove("fade-out");
         main.classList.remove("nonscroll");
         main.classList.remove("viewport-height");
-        const confetti = document.querySelector(".confetti-container");
-        confetti.remove();
+        seite.remove();
     }
     const moveGeschenk = () => {
         const geschenk = document.querySelector(".geschenk");
@@ -83,7 +82,7 @@ function Geschenk() {
                     </div>
                 </div>
             </div>
-            <p>{ open ? "Glück Geburtstag!" : "Are you ready...?"}</p>
+            <p className="geschenk-p">{ open ? "Glück Geburtstag!" : "Are you ready...?"}</p>
             <button className="btn btn-primary skip-btn" onClick={skipAnimation}>Skip presentation</button>
         </div>
     )

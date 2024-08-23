@@ -7,23 +7,20 @@ import { useEffect, useState } from "react";
 
 function Timer({ callback }) {
 
-    const [ timer, setTimer ] = useState(30);
-    const [ width, setwidth ] = useState('100%');
+    
+    const [ time, setTime  ] = useState(30);
+
 
     useEffect(() => {
+        if (time === 0) {
+            callback();
+        } else {
+            setTimeout(() => {
+                setTime(time - 1);
+            }, 1000)
+        }
 
-        const interval = setInterval(() => {
-            if (timer > 0) { setTimer(timer-1) };
-        }, 1000);
-
-
-        setwidth(`${(Math.round((timer/30)*100))}%`);
-
-        if (timer === 0) { callback() };
-
-        return () => clearInterval(interval);
-        
-    }, [timer])
+    }, [time])
     return (
         <div className="timer">
             <div className="timer-bar"></div>
@@ -31,4 +28,4 @@ function Timer({ callback }) {
     )
 }
 
-export default Timer;
+export default Timer;<kbd></kbd>
