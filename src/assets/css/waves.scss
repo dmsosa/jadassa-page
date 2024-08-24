@@ -48,10 +48,10 @@
 
   .wellen-container {
     position: relative;
-    bottom: 100%;
+    bottom: 170%;
     width: 100%;
-    height: 100%;
-    z-index: 10000;
+    height: 150%;
+    z-index: 2;
   }
   .welle {
     position: absolute;
@@ -93,10 +93,10 @@
 
 .wasser-container {
   position: relative;
-  height: 100%;
+  height: 150%;
   width: 100%;
-  bottom: 0;
-  z-index: 10001;
+  bottom: 50%;
+  z-index: 3;
   transition: all 1.4s;
 }
 
@@ -106,7 +106,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   max-height: 100%;
   background-color: #00bfff;
   -webkit-mask: radial-gradient(var(--rx) var(--ry) at var(--rx) var(--ry), blue 99%, transparent 100%) 0% 0% / 200% 100% repeat-x,
@@ -117,8 +117,16 @@
     opacity: 0.8;
   }
   &--2 {
-    animation: wasser-1 3.2s linear infinite;
+    animation: wasser-2 3.2s linear infinite;
     opacity: 0.4;
+  }
+  &--3 {
+    animation: wasser-2 3.2s linear infinite;
+    opacity: 0.8;
+  }
+  &--4 {
+    animation: wasser-2 3.2s linear infinite;
+    opacity: 0.5;
   }
 }
 @keyframes wave-1 {
@@ -127,7 +135,8 @@
       max-height: 110px;
     }
     50% {
-      max-height: 400px;
+      max-height: 700px;
+      opacity: 1;
     }
     100% {
       -webkit-mask-position-x: calc(var(--rx) * 4);
@@ -153,7 +162,21 @@
     max-height: 80px;
   }
   50% {
-    max-height: 200px;
+    max-height: 600px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-mask-position-x: calc(var(--rx) * 4);
+    max-height: 80px;
+  }
+}
+@keyframes wasser-2 {
+  0% {
+    -webkit-mask-position-x: 0px;
+    max-height: 80px;
+  }
+  50% {
+    max-height: 400px;
   }
   100% {
     -webkit-mask-position-x: calc(var(--rx) * 4);

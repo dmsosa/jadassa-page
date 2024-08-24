@@ -5,71 +5,68 @@ import Score from "./Score";
 import ProgressBar from "./ProgressBar";
 
 function Quiz() {
-    const [ questions, setQuestions ] = useState(getAllQuestions());
-    const [ showScore, setShowScore ] = useState(true);
-    const [ finalScore, setFinalScore ] = useState(0);
-    const [ attemps, setAttemps ] = useState(0);    
+  const [questions, setQuestions] = useState(getAllQuestions());
+  const [showScore, setShowScore] = useState(true);
+  const [finalScore, setFinalScore] = useState(0);
+  const [attemps, setAttemps] = useState(0);
 
+  const maxPoints = 10000;
+  const pointsPerQuestion = maxPoints / questions.length;
 
-    const maxPoints = 10000;
-    const pointsPerQuestion = maxPoints / questions.length;
-
-    const sumToScore = (points) => {
-        if (finalScore + points > maxPoints) {
-            setFinalScore(maxPoints);
-            return;
-        }
-        setFinalScore(finalScore + points);
+  const sumToScore = (points) => {
+    if (finalScore + points > maxPoints) {
+      setFinalScore(maxPoints);
+      return;
     }
+    setFinalScore(finalScore + points);
+  };
 
+  const handleTryAgain = () => {
+    // all questions without answer
+    setQuestions(
+      questions.map((q) => {
+        q.answered = false;
+        return q;
+      }),
+    );
+    setShowScore(false);
+    setFinalScore(0);
+    setAttemps(attemps + 1);
+  };
 
-    const handleTryAgain = () => {
-        // all questions without answer
-        setQuestions(questions.map((q) => { 
-            q.answered = false 
-            return q;
-        })); 
-        setShowScore(false);
-        setFinalScore(0);
-        setAttemps(attemps+1);
-    }
-
-
-    return (
-        showScore ? 
+  return showScore ? (
+    <>
+      <Score
+        firstTime={attemps < 1}
+        score={finalScore}
+        setShowScore={setShowScore}
+        maxScore={maxPoints}
+        handleTryAgain={handleTryAgain}
+      />
+    </>
+  ) : (
+    <>
+      <div className="quiz-wrapper">
+        <ProgressBar finalScore={finalScore} />
+        <div className="quiz-container">
+          {questions.map((question, index) => (
             <>
-                <Score 
-                firstTime={attemps < 1} 
-                score={finalScore} 
-                setShowScore={setShowScore} 
-                maxScore={maxPoints}
-                handleTryAgain={handleTryAgain} 
-                /> 
+              <QuestionCard
+                key={index}
+                question={question}
+                index={index}
+                sumToScore={sumToScore}
+                pointsPerQuestion={pointsPerQuestion}
+                setQuestions={setQuestions}
+                setShowScore={setShowScore}
+                allQuestions={questions}
+              />
             </>
-            :
-            <>
-                <div className="quiz-wrapper">
-                    <ProgressBar finalScore={finalScore}/>
-                    <div className="quiz-container">
-                        {questions.map((question, index) => 
-                        <>
-                            <QuestionCard 
-                            key={index}
-                            question={question} 
-                            index={index} 
-                            sumToScore={sumToScore} 
-                            pointsPerQuestion={pointsPerQuestion}
-                            setQuestions={setQuestions} 
-                            setShowScore={setShowScore}
-                            allQuestions={questions}/>
-
-                        </>
-                        )}
-                    </div>
-                </div>
-
-            </>)    
-    
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Quiz;

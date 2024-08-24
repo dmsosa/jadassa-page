@@ -2,6 +2,15 @@
     --heuball-c: #e06e48;
 }
 
+.wuste-wrapper {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+}
 .berge {
     --h: 50px;
     z-index: -10;
@@ -204,14 +213,12 @@
 
 .heuball {
     position: absolute;
-    top: 50px;
-    left: 50px;
     width: 250px;
     height: 250px;
     border-radius: 100%;
     border: solid var(--heuball-c) 8px;
     clip-path: polygon(-150% 0%, 30% 0%, 30% 20px, 70% 20px, 70% 0%, 150% 0%, 150% 100%, -150% 100%);
-    animation: jumping 1.5s infinite, rolling 5s linear infinite, rotating 2s linear infinite;
+    animation: jumping  5.5s infinite, rolling 5s linear infinite, rotating 2s linear infinite;
     &--2 {
         animation: jumping 3s infinite, rolling 7s linear infinite reverse, rotating--2 2s linear infinite reverse;
     }
@@ -324,23 +331,23 @@
 
 @keyframes jumping {
     0% {
-        top: 200px;
+        bottom: -22%;
         animation-timing-function: ease-in;
     }
     25% {
-        top: 250px;
+        bottom: -5%;
         animation-timing-function: ease-out;
     }
     50% {
-        top: 215px;
+        bottom: -20%;
         animation-timing-function: ease-in;
     }
     75% {
-        top: 250px;
+        bottom: -15%;
         animation-timing-function: ease-out;
     }
     100% {
-        top: 200px;
+        bottom: -22%;
         animation-timing-function: ease-in;
     }
 }

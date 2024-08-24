@@ -7,31 +7,30 @@ import PoemPage from "./pages/PoemPage";
 import Geschenk from "./pages/Geschenk";
 
 function App() {
-
   const scrollX = (stickySection) => {
     const offsetTop = stickySection.offsetTop;
     const horizontalScroll = stickySection.querySelector(".hor-scroll");
     let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
     percentage = percentage < 0 ? 0 : percentage > 100 ? 100 : percentage;
     horizontalScroll.style.transform = `translateX(-${percentage}vw)`;
-  }
+  };
   useEffect(() => {
     const stickySections = document.querySelectorAll(".sticky-section");
     window.addEventListener("scroll", () => {
-      for (let i = 0; i < stickySections.length ; i++) {
+      for (let i = 0; i < stickySections.length; i++) {
         scrollX(stickySections[i]);
       }
-    })
-  }, [])
+    });
+  }, []);
   return (
     <main className="nonscroll viewport-height">
       <Geschenk />
       <div className="sticky-section">
         <div className="sticky">
-            <div className="hor-scroll">
-              <FlowerPage />
-              <MeditationPage />
-            </div>
+          <div className="hor-scroll">
+            <FlowerPage />
+            <MeditationPage />
+          </div>
         </div>
       </div>
       <section>
@@ -48,5 +47,5 @@ function App() {
     </main>
   );
 }
-      
+
 export default App;

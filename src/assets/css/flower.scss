@@ -64,7 +64,7 @@
 }
 // Blume ----------------------------------------------
 .blume {
-  z-index: 9999;
+  z-index: 1;
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -76,7 +76,6 @@
     animation: beweg-blume--1 5s linear infinite;
   }
   &--2 {
-    z-index: 2;
     left: 45%;
     transform: rotate(-20deg);
     animation: beweg-blume--2 5s ease-in-out infinite;
@@ -90,7 +89,6 @@
     }
   }
   &--3 {
-    z-index: 1;
     left: 55%;
     transform: rotate(20deg);
     animation: beweg-blume--3 5s ease-in-out infinite;

@@ -1,21 +1,21 @@
 import { createContext, useContext, useState } from "react";
 
 const GodContext = createContext({
-    withGod: true,
-    setWithGod: () => {}
+  withGod: true,
+  setWithGod: () => {},
 });
 export function useGod() {
-    return useContext(GodContext);
-};
+  return useContext(GodContext);
+}
 
-function GodProvider({children}) {
-    const [ withGod, setWithGod ] = useState(true);
+function GodProvider({ children }) {
+  const [withGod, setWithGod] = useState(true);
 
-    return (
-        <GodContext.Provider value={{withGod, setWithGod}}>
-            {children}
-        </GodContext.Provider>
-    )
-};
+  return (
+    <GodContext.Provider value={{ withGod, setWithGod }}>
+      {children}
+    </GodContext.Provider>
+  );
+}
 
 export default GodProvider;

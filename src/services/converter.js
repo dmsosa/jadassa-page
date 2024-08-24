@@ -1,9 +1,9 @@
-export function secondsToString(time)  {
-    const minuten = Math.floor(time / 60);
-    const sekunden = Math.floor(time % 60);
-    const stringSekunden = time < 10 ? `0${sekunden}` : sekunden;
+export function secondsToString(time) {
+  const minuten = Math.floor(time / 60);
+  const sekunden = Math.floor(time % 60);
+  const stringSekunden = time < 10 ? `0${sekunden}` : sekunden;
 
-    return `${(minuten)}:${stringSekunden}`;
+  return `${minuten}:${stringSekunden}`;
 }
 
 //Zeit in sekunden erhalten
@@ -11,12 +11,12 @@ export function secondsToString(time)  {
 //zeit % 60 = Sekunden
 //wenn sekunden weniger als 10 ist, geben sie 0+zeit ein
 
-export function stringToSeconds(string)  {
-    const list = string.split(":");
-    const minuten = Number(list[0]);
-    const sekunden = Number(list[1]);
+export function stringToSeconds(string) {
+  const list = string.split(":");
+  const minuten = Number(list[0]);
+  const sekunden = Number(list[1]);
 
-    return (minuten * 60) + sekunden ;
+  return minuten * 60 + sekunden;
 }
 
 //String bei : splitten
