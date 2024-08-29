@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jadassa-page/static/css/main.d96bbc56.css",
-    "main.js": "/jadassa-page/static/js/main.e875e1d2.js",
+    "main.css": "/jadassa-page/static/css/main.bc9631b6.css",
+    "main.js": "/jadassa-page/static/js/main.c4148c5e.js",
     "static/js/453.7c0e262c.chunk.js": "/jadassa-page/static/js/453.7c0e262c.chunk.js",
     "static/media/obedeceatuspapas.mp3": "/jadassa-page/static/media/obedeceatuspapas.7f5c68e0115e2327b35f.mp3",
     "static/media/Snow.png": "/jadassa-page/static/media/Snow.a73e183a1d15869904fe.png",
@@ -11,12 +11,12 @@
     "static/media/Clouds.png": "/jadassa-page/static/media/Clouds.0756fd770f55ea454fd7.png",
     "static/media/Drizzle.png": "/jadassa-page/static/media/Drizzle.8f4896a3a310ba18557c.png",
     "index.html": "/jadassa-page/index.html",
-    "main.d96bbc56.css.map": "/jadassa-page/static/css/main.d96bbc56.css.map",
-    "main.e875e1d2.js.map": "/jadassa-page/static/js/main.e875e1d2.js.map",
+    "main.bc9631b6.css.map": "/jadassa-page/static/css/main.bc9631b6.css.map",
+    "main.c4148c5e.js.map": "/jadassa-page/static/js/main.c4148c5e.js.map",
     "453.7c0e262c.chunk.js.map": "/jadassa-page/static/js/453.7c0e262c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d96bbc56.css",
-    "static/js/main.e875e1d2.js"
+    "static/css/main.bc9631b6.css",
+    "static/js/main.c4148c5e.js"
   ]
 }
