@@ -48,6 +48,7 @@ function Geschenk() {
       seite.classList.remove("fade-out");
       main.classList.remove("nonscroll");
       main.classList.remove("viewport-height");
+      seite.remove();
     }, 2000);
   };
 
