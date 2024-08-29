@@ -20,9 +20,12 @@ function ToDoModal({ todoList, setTodoList }) {
         case "completed": {
           return task.completed;
         }
+        default: {
+          return todoList;
+        }
       }
     });
-  }, [todoList, setTodoList, category]);
+  }, [todoList, category]);
 
   const blurPage = () => {
     const page = document.querySelector(".todo-wrapper");

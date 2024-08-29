@@ -37,7 +37,7 @@ function Score({ firstTime, score, maxScore, handleTryAgain }) {
     } else if (80 < barWidth && barWidth <= 100) {
       setBg("#41fc03"); //green
     }
-  }, [score, maxScore]);
+  }, [score, maxScore, barWidth]);
   return (
     <div className="score-div">
       {firstTime ? (
